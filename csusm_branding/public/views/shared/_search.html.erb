@@ -1,0 +1,77 @@
+<% show_header = true if show_header.nil? %>
+    <% header_size = '3' if header_size.nil? %>
+        <div class="search" role="search">
+            <a name="search" id="search"></a>
+            <% if show_header %>
+                <h<%= header_size %>>
+                    <%=  t('actions.search') %>
+                    <%= title %>
+                </h<%= header_size %>>
+            <% end %>
+            <% @search = Search.new unless defined?(@search) %>
+            <%= form_tag(app_prefix("#{search_url}"), method: 'get', :id => 'advanced_search') do %>
+            <% (0...[1, @search.q.length].max).each do |i| %>
+            <div class="row search_row" id="search_row_<%= i %>">
+                <div class="col-sm-1 bool form-group form-inline">
+                    <%= label_tag("op#{i}", t('advanced_search.operator_label'), :class => 'sr-only') %>
+                    <%= select_tag('op[]', options_for_select(Search.get_boolean_opts, @search[:op][i]), disabled: (i == 0), :id => "op#{i}",:class=> 'form-control' + (i == 0 ? ' hidden' : '')) %>
+                    <%= hidden_field_tag('op[]','', :id => 'op_') if i == 0 %>
+                </div>
+                <div class="<%= i == 0 ? " col-sm-3" : "col-sm-6" %> form-group form-inline">
+                    <%= label_tag(:"q#{i}", t('navbar.search_placeholder'),:class => 'sr-only repeats') %>
+                    <%= text_field_tag('q[]', @search[:q][i], :placeholder =>  t('navbar.search_placeholder'), :id => "q#{i}",
+                    :class=> 'form-control repeats fill-column') %>
+                </div>
+                <div class="col-sm-1 form-group form-inline"">
+                    <%= submit_tag(t('search-button.label'), :class=>'btn btn-primary', :id => 'submit_search') %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    <div class=" row front-page">
+        <div class="col-sm-6">
+            <div id="special-collections-carousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#special-collections-carousel" data-slide-to="0" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="1" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="2" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="3" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="4" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="5" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="6" class=""></li>
+                    <li data-target="#special-collections-carousel" data-slide-to="7" class=""></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <a href="https://archives.csusm.edu/ecke/items/show/1258">
+                            <img src="https://archives.csusm.edu/ecke/files/thumbnails/4/1258/articles_incorporation1957_p1.jpg" alt="Image of Articles of Incorporation, page 1">
+                        </a>
+                        <div class="carousel-caption">
+                            <h2><a href="https://archives.csusm.edu/ecke/items/show/1258">Articles of Incorporation</a></h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#special-collections-carousel" role="button" data-slide="prev" aria-label="Show slide 0 of 0">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#special-collections-carousel" role="button" data-slide="next" aria-label="Show slide 2 of 0">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-1">
+            <h3>About this Site</h3>
+            <p>Use this site to explore descriptions of our collections at the California State University San Marcos Library, which include manuscripts, archival collections, prints and photographs, digital and analog media, artifacts, and other unique material.</p>
+            <h3>Requesting Materials</h3>
+            <p>The result page for each item includes a “Request” tab to send an email to staff at CSUSM Special Collections. Please specify a). the folder titles and box numbers for the materials you are requesting; b). the desired appointment date; and c). your contact information. You can visit the CSUSM Special Collections website for more information about the location, hours and policies for providing access to its collections. Collections are non-circulating and must be used in the reading room. Please consult staff with questions about using the materials.</p>
+        </div>
+    </div>
+<% end %>
+<script type="text/javascript">
+    initialize_search();
+</script>

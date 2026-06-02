@@ -1,0 +1,41 @@
+<div class="container-fluid panel-footer">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="footer-items">
+				<h4>Contact Us</h4>
+				<p>California State University San Marcos<br />
+				<a href="http://maps.google.com/maps?q=333+s+twin+oaks+valley+rd&amp;oe=utf-8&amp;client=firefox-a&amp;ie=UTF8&amp;hq=&amp;hnear=333+S+Twin+Oaks+Valley+Rd,+San+Marcos,+San+Diego,+California&amp;gl=us&amp;t=h&amp;ll=33.128711,-117.159405&amp;spn=0.025157,0.032187&amp;z=14&amp;iwloc=A&amp;source=embed" class="gmap-link">333 S.Twin Oaks Valley Rd. <i class="fa fa-map-marker"></i>
+				<br/>San Marcos, CA 92096</a></p>
+				<a href="https://archives.csusm.edu/contact-us" class="email-us-link">
+				Contact Us <i class="fa fa-envelope-open-o"></i> at archives@csusm.edu</a>
+				</p>
+				<p>(760) 750-4312</p>
+				<p><% if AppConfig[:feedback_url] && !AppConfig[:feedback_url].blank? %><a id='aspaceFeedbackLink' href='<%= AppConfig[:feedback_url]%>' target='_blank'></a><% end %></p>				
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://csusmlibrary.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/vx5lfk/b/0/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=2fe1c010"></script>
+
+<script type="text/javascript">
+    var url = document.location.toString();
+    var ref_url = document.referrer;
+    var nAgt = navigator.userAgent
+	window.ATL_JQ_PAGE_PROPS = jQuery.extend(window.ATL_JQ_PAGE_PROPS, {
+		// ==== default field values ====
+        fieldValues: {
+	        description: '\n\n\n\n' + 'The following information will help us work with your feedback.\n\n' + 'I\'m on this page: \n' + url + '\n\n' + 'Previous page: ' + ref_url + '\n\n' +'My browser info: \n' + nAgt,
+	        priority: '2'
+		},
+		// ==== Special field config for environment ====
+		environment: function() {
+			var env_info = {};
+	 
+			if ( window.ADDITIONAL_CUSTOM_CONTEXT ) {
+				env_info[ 'Additional Context Information' ] = window.ADDITIONAL_CUSTOM_CONTEXT;
+			}
+ 
+		return env_info;
+		}
+	});
+</script>

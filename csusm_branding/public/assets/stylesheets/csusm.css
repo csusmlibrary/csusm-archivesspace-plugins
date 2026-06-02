@@ -1,0 +1,125 @@
+a,
+a:hover {
+	text-decoration: none;
+}
+
+#header > .row {
+	background: #17405c;
+	border-bottom: none;
+}
+
+#header > .row h1,
+#header > .row h1 a,
+#header > .row h1 a:hover,
+#header > .row .h1,
+#header > .row .h1 a,
+#header > .row .h1 a:hover {
+	text-decoration: none;
+	color: #fff;
+	font-weight: normal;
+	font-size: 27px;
+}
+
+#header .logo {
+    height: 50px;
+    margin-top: 10px;
+}
+
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus {
+	text-decoration: none;  
+}
+
+.navbar > .top-bar {
+    background: #f8f8f8 !important;
+    border-top: none;
+    border-bottom: none;
+}
+
+.search > h3 {
+	display: none;
+}
+
+#advanced_search {
+	padding: 20px 20px 10px;
+	background: #f8f8f8;
+}
+
+#content h2 > span.translation_missing {
+	display: none;
+}
+
+.front-page {
+    background: #f3f3f3;
+    padding: 20px 2%;
+    margin: 30px 0 0;
+}
+
+#special-collections-carousel {
+	margin: 20px 0;
+}
+
+#special-collections-carousel .carousel-inner {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#special-collections-carousel .carousel-control.left,
+#special-collections-carousel .carousel-control.right {
+	background: #fff !important;
+	color: #333;
+}
+
+#special-collections-carousel .carousel-caption {
+    left: 5% !important;
+    right: 5% !important;
+    bottom: 70px;
+    background: #fff;
+    padding: 20px !important;
+    opacity: .8;
+}
+
+#special-collections-carousel .carousel-caption h2 {
+	margin: 0;
+}
+
+#refineSearchPanel .front-page,
+#main-content.repositories .front-page {
+	display: none;
+}
+
+.searchstatement {
+    background-color: #f9f9f9;
+    margin-bottom: 30px;
+    padding: 20px 20px 0;
+}
+
+.front-page h3 {
+	margin-top: 30px;
+}
+
+.panel-footer .footer-items {
+	text-align: left;
+	padding: 30px;
+}
+
+#header h1 a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#content .search h2 {
+  display: none;
+}
+
+/* Accessibility - Makes the skip to main content link white on focus */
+div.skipnav a.sr-only.sr-only-focusable:focus {
+    color: white !important;
+    overflow: visible !important;
+    clip: auto !important;
+}
+
+/* Accessibility - Puts border around CSUSM logo when tab active */
+#header .logo:focus {
+    outline: 4px solid #fff;
+}
