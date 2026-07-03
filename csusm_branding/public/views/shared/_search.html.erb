@@ -1,33 +1,19 @@
-<% show_header = true if show_header.nil? %>
-    <% header_size = '3' if header_size.nil? %>
-        <div class="search" role="search">
-            <a name="search" id="search"></a>
-            <% if show_header %>
-                <h<%= header_size %>>
-                    <%=  t('actions.search') %>
-                    <%= title %>
-                </h<%= header_size %>>
-            <% end %>
-            <% @search = Search.new unless defined?(@search) %>
-            <%= form_tag(app_prefix("#{search_url}"), method: 'get', :id => 'advanced_search') do %>
-            <% (0...[1, @search.q.length].max).each do |i| %>
-            <div class="row search_row" id="search_row_<%= i %>">
-                <div class="col-sm-1 bool form-group form-inline">
-                    <%= label_tag("op#{i}", t('advanced_search.operator_label'), :class => 'sr-only') %>
-                    <%= select_tag('op[]', options_for_select(Search.get_boolean_opts, @search[:op][i]), disabled: (i == 0), :id => "op#{i}",:class=> 'form-control' + (i == 0 ? ' hidden' : '')) %>
-                    <%= hidden_field_tag('op[]','', :id => 'op_') if i == 0 %>
-                </div>
-                <div class="<%= i == 0 ? " col-sm-3" : "col-sm-6" %> form-group form-inline">
-                    <%= label_tag(:"q#{i}", t('navbar.search_placeholder'),:class => 'sr-only repeats') %>
-                    <%= text_field_tag('q[]', @search[:q][i], :placeholder =>  t('navbar.search_placeholder'), :id => "q#{i}",
-                    :class=> 'form-control repeats fill-column') %>
-                </div>
-                <div class="col-sm-1 form-group form-inline"">
-                    <%= submit_tag(t('search-button.label'), :class=>'btn btn-primary', :id => 'submit_search') %>
-                </div>
-            </div>
-        </div>
-    <% end %>
+    <!-- 07/03/26 Khuong:
+    1) Library Technology Initiatives and Development (LTID) recommended to Special 
+    Collections (SC) that we use the customizable search bar provided by Lyrasis, and drop 
+    the Ruby code that creates a Search Object.  That is because creating a Search Object 
+    requires a working knowledge of Ruby and advanced knowledge of ArchivesSpace.  
+    a) Both LTID and SC forsees the delay when we have custom code on a cloud-hosted
+    application.  b) Both LTID and SC are OK with low-risk, high-reward customization; 
+    that is why we still have some custom code to send to Lyrasis. c) The mix of Ruby
+    and HTML code creates a real problem to comment out the entire section.  We will
+    just delete the section entirely.
+
+    2) SC would like to drop the front-page's carousel, because the carousel needs new
+    images to be an effective tool.  SC just hasn't updated the carousel, and would like
+    to drop it.
+    -->
+<!--
     <div class=" row front-page">
         <div class="col-sm-6">
             <div id="special-collections-carousel" class="carousel slide" data-ride="carousel">
@@ -71,7 +57,7 @@
             <p>The result page for each item includes a “Request” tab to send an email to staff at CSUSM Special Collections. Please specify a). the folder titles and box numbers for the materials you are requesting; b). the desired appointment date; and c). your contact information. You can visit the CSUSM Special Collections website for more information about the location, hours and policies for providing access to its collections. Collections are non-circulating and must be used in the reading room. Please consult staff with questions about using the materials.</p>
         </div>
     </div>
-<% end %>
 <script type="text/javascript">
     initialize_search();
 </script>
+-->
