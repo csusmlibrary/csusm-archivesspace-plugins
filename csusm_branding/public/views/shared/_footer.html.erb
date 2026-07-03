@@ -1,3 +1,4 @@
+<!--
 <div class="container-fluid panel-footer">
 	<div class="row">
 		<div class="col-md-12">
@@ -10,11 +11,20 @@
 				Contact Us <i class="fa fa-envelope-open-o"></i> at archives@csusm.edu</a>
 				</p>
 				<p>(760) 750-4312</p>
-				<p><% if AppConfig[:feedback_url] && !AppConfig[:feedback_url].blank? %><a id='aspaceFeedbackLink' href='<%= AppConfig[:feedback_url]%>' target='_blank'></a><% end %></p>				
 			</div>
 		</div>
 	</div>
 </div>
+-->
+<!-- 07/03/26 1) Special Collections (SC) would like to use the footer provided by Lyrasis.
+                 Therefore, we are removing the <div> .. </div> block above.
+              2) SC would like to continue using the "Issue Collector" provided by Jira, which are
+                 the 2 <script> .. </script> block below.  SC is aware that the risk of using of
+                 issue collector, where the URL (https://csusmlibrary.atlassian.net/...) may change.
+                 If it is changed, we need to update the code block below.  While the URL is not 
+                 updated, the browser will load everything execpt the issue collector.  Still, the
+                 browser tab will show a spinning wheel for about 20-25 seconds.
+                 -->
 <script type="text/javascript" src="https://csusmlibrary.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/vx5lfk/b/0/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=2fe1c010"></script>
 
 <script type="text/javascript">
